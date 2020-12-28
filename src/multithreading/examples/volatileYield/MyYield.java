@@ -9,13 +9,13 @@ public class MyYield extends Thread{
     @Override
     public void run() {
         System.out.println(Thread.currentThread().getName() + " yield to another thread");
-        Thread.yield();
+        Thread.yield();     //поток уступает место
         System.out.println(Thread.currentThread().getName() + " finished his work");
     }
 
     public static void main(String[] args) {
         for (int i = 0; i < 3; i++) {
-            new MyYield();
+            new MyYield();      //создаем 3 потока
         }
     }
 }

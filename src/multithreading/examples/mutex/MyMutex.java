@@ -9,7 +9,7 @@ public class MyMutex extends Thread {
     @Override
     public void run() {
         Integer counter = 1;
-        synchronized (counter) {
+//        synchronized (counter) {    //синхронизированный блок с монитором counter
             for (int i = 0; i < 4; i++) {
                 System.out.println(Thread.currentThread().getName() + " : " + counter);
                 counter++;
@@ -19,12 +19,12 @@ public class MyMutex extends Thread {
                     e.printStackTrace();
                 }
             }
-        }
+//        }
     }
 
     public static void main(String[] args) {
         for (int i = 0; i < 5; i++) {
-            new MyMutex();
+            new MyMutex();  //создадим 5 потоков
         }
     }
 }

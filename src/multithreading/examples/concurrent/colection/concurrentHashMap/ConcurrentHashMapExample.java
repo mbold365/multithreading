@@ -5,6 +5,13 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/*
+создадим две мапы - обычную и потокобезопасную
+попробуем изменить их в процессе итерации и посмотрим на результат
+спойлер - потокобезопасная мапа позволяет изменять ее в процессе итерации
+подобное важно в многопоточности, тк это достаточно частое явление
+*/
+
 public class ConcurrentHashMapExample {
 
     Map<String, String> map;

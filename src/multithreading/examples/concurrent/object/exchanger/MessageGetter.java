@@ -1,11 +1,11 @@
-package multithreading.examples.concurrent.object.Exchanger;
+package multithreading.examples.concurrent.object.exchanger;
 
 import java.util.concurrent.Exchanger;
 
-public class MessageGetter implements Runnable {
+public class MessageGetter implements Runnable { //пример получателя
 
-    Exchanger<String> exchanger;
-    String message;
+    private Exchanger<String> exchanger; //параметр-ый типом строка обменник
+    private String message;
 
     public MessageGetter(Exchanger<String> exchanger, String message) {
         this.exchanger = exchanger;
@@ -15,7 +15,7 @@ public class MessageGetter implements Runnable {
     @Override
     public void run() {
         try {
-            message = exchanger.exchange(message);
+            message = exchanger.exchange(message); //передаем ссылку на обмениваемые данные
             System.out.println("Message getter received: " + message);
         } catch (InterruptedException e) {
             e.printStackTrace();

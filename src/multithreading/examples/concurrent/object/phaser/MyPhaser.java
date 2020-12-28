@@ -4,30 +4,23 @@ import java.util.concurrent.Phaser;
 
 public class MyPhaser implements Runnable {
 
-    private Phaser phaser;
+    private Phaser phaser; //родительский объект
 
     public MyPhaser(Phaser phaser) {
         this.phaser = phaser;
-        phaser.register();
+        phaser.register(); //регистрируем сторону, выполняющую фазу
     }
 
     @Override
     public void run() {
-//
-//        System.out.printf("%s on phase %d\n", Thread.currentThread().getName(), phaser.getPhase());
-//        phaser.arriveAndAwaitAdvance();
-//
-//        System.out.printf("%s on phase %d\n", Thread.currentThread().getName(), phaser.getPhase());
-//        phaser.arriveAndAwaitAdvance();
-//
-//        System.out.printf("%s on phase %d\n", Thread.currentThread().getName(), phaser.getPhase());
-//        phaser.arriveAndDeregister();
-        for (int i = 0; i < 3; i++) {
-            System.out.printf("%s on phase %d\n", Thread.currentThread().getName(), phaser.getPhase());
-            if (i == 2) {
-                phaser.arriveAndDeregister();
-            }
-            phaser.arriveAndAwaitAdvance();
-        }
+
+        System.out.printf("%s on phase %d\n", Thread.currentThread().getName(), phaser.getPhase());
+        phaser.arriveAndAwaitAdvance(); //завершили фазу, ждем остальных
+
+        System.out.printf("%s on phase %d\n", Thread.currentThread().getName(), phaser.getPhase());
+        phaser.arriveAndAwaitAdvance();
+
+        System.out.printf("%s on phase %d\n", Thread.currentThread().getName(), phaser.getPhase());
+        phaser.arriveAndDeregister(); // сообщаем о завершении всех фаз и снимаем сторону с регистрации
     }
 }

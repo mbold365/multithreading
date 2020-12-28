@@ -13,7 +13,7 @@ class MyDaemon extends Thread {
         for(int i = 0; i < counter; i++) {
             try {
                 sleep(1000);
-                System.out.println(this.getName());
+                System.out.println(this.getName() + " :" + i + " " + this.isDaemon());
             } catch(InterruptedException e) {
                 e.printStackTrace();
             }
@@ -25,7 +25,7 @@ class MyDaemon extends Thread {
         for (int i = 0; i < 5; i++) {
             if (i == 2) {
                 example = new MyDaemon(6);
-                example.setDaemon(true);
+                example.setDaemon(true);    // делаем поток с номером 2 демоном
             } else {
                 example = new MyDaemon(3);
             }
@@ -33,7 +33,7 @@ class MyDaemon extends Thread {
         }
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

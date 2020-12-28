@@ -3,7 +3,7 @@ package multithreading.examples.concurrent.object.cyclicBarrier;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
-public class MyCyclicBarrier {
+public class MyCyclicBarrier { // пример парома, перевозящего машины, но паром и машина - разные потоки
 
     private static CyclicBarrier barrier;
     private static final int FERRY_SIZE = 5;
@@ -33,9 +33,9 @@ public class MyCyclicBarrier {
         @Override
         public void run() {
             try {
-                System.out.printf("Car №%d is near ferry\n", carNum);
-                barrier.await();
-                System.out.printf("Car №%d get out from ferry and ride away\n", carNum);
+                System.out.printf("Car-%d is near ferry\n", carNum);
+                barrier.await(); // достигли парома (барьера), уведомляем об этом
+                System.out.printf("Car-%d get out from ferry and ride away\n", carNum);
             } catch (BrokenBarrierException | InterruptedException e) {
                 e.printStackTrace();
             }

@@ -1,8 +1,8 @@
-package multithreading.examples.concurrent.object.Exchanger;
+package multithreading.examples.concurrent.object.exchanger;
 
 import java.util.concurrent.Exchanger;
 
-public class MyExchanger {
+public class MyExchanger { //пример простого обмена сообщениями
 
     public static void main(String[] args) {
         Exchanger<String> exchanger = new Exchanger<>();

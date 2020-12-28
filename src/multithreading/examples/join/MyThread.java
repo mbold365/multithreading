@@ -18,10 +18,10 @@ public class MyThread implements Runnable {
 
     public static void main(String[] args) {
         Thread thread = new Thread(new MyThread());
-        thread.start();
+        thread.start();     //запускаем поток
 
         try {
-            thread.join();
+            thread.join();      //дожидаемся его выполнения
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

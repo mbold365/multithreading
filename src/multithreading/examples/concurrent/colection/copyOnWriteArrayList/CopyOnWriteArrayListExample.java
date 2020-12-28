@@ -16,14 +16,15 @@ public class CopyOnWriteArrayListExample {
         defaultList.add("Concurrent");
         defaultList.add("Collection");
 
+        //создаем потокобезопасный список, передавая в конструктор обычный
         list = new CopyOnWriteArrayList<>(defaultList);
 
         System.out.println("Result with changes after iteration:");
-        printCollection(true);
+        printCollection(true); //меняем коллекцию, но результат будет прежним
 
         System.out.println("\nDefault result after iteration:");
-        printCollection(false);
-
+        printCollection(false); //изменения появятся лишь при следующем проходе
+        //исключения из-за внесения изменений нет - алгоритм copyOnWrite работает
     }
 
     private void printCollection(boolean change) {
