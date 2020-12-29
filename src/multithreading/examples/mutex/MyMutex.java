@@ -2,14 +2,14 @@ package multithreading.examples.mutex;
 
 public class MyMutex extends Thread {
 
-    public MyMutex() {
+    private MyMutex() {
         this.start();
     }
 
     @Override
     public void run() {
         Integer counter = 1;
-//        synchronized (counter) {    //синхронизированный блок с монитором counter
+        synchronized (counter) {    //синхронизированный блок с монитором counter
             for (int i = 0; i < 4; i++) {
                 System.out.println(Thread.currentThread().getName() + " : " + counter);
                 counter++;
@@ -19,7 +19,7 @@ public class MyMutex extends Thread {
                     e.printStackTrace();
                 }
             }
-//        }
+        }
     }
 
     public static void main(String[] args) {

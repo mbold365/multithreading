@@ -4,7 +4,7 @@ import java.util.concurrent.Callable;
 
 public class MyCallable implements Callable<String> {
 
-    public MyCallable() throws Exception {
+    private MyCallable() throws Exception {
         this.call();
     }
 

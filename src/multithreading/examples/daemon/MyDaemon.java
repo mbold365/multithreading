@@ -2,9 +2,9 @@ package multithreading.examples.daemon;
 
 class MyDaemon extends Thread {
 
-    int counter;
+    private int counter;
 
-    public MyDaemon(int counter) {
+    private MyDaemon(int counter) {
         this.counter = counter;
     }
 

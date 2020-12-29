@@ -23,8 +23,8 @@ public class ExecutorServiceExample {
         executor = Executors.newFixedThreadPool(2); // создаем фиксированный пул из двух потоков исполнения
 
         System.out.println("Threads start up");
-        executor.execute(new MyThread(cdl1, "Thread.1")); // имплементации потоков принимают cdl
-        executor.execute(new MyThread(cdl2, "Thread.2")); // стартуем все 4 потока на исполнения
+        executor.execute(new MyThread(cdl1, "Thread.1")); // стартуем все 4 потока на исполнения
+        executor.execute(new MyThread(cdl2, "Thread.2"));
         executor.execute(new MyThread(cdl3, "Thread.3"));
         executor.execute(new MyThread(cdl4, "Thread.4"));
 
@@ -48,7 +48,7 @@ public class ExecutorServiceExample {
         String         name;
         CountDownLatch latch;
 
-        MyThread(CountDownLatch latch, String name) {
+        MyThread(CountDownLatch latch, String name) { // имплементации потоков принимают cdl
             this.latch = latch;
             this.name = name;
             new Thread(this);
